@@ -7,19 +7,19 @@ using Serilog;
 
 namespace GAP.Api.Functions.Users
 {
-    public class GetUsers(IGetUserHandler getUserHandler)
+    public class GetUsers(IUserService userService)
     {
         private readonly ILogger _log = Log.Logger.ForContext<GetUsers>();
 
         [Function(nameof(GetUsers))]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = Routes.Users)] HttpRequestData req)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = Routes.Users)] HttpRequestData req, int companyId)
         {
             //var validateResponse = req.ValidateAuthorization(_authentication);
             //if (!validateResponse.Authorized) return req.CreateResponse(HttpStatusCode.Unauthorized);
+        
+            var users = await userService.GetUsers(companyId);
 
-
-
-            return await req.MapResponse(new List<User>(), _log);
+            return await req.MapResponse(users, _log);
         }
     }
 }

@@ -1,16 +1,15 @@
 ﻿CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
 
 CREATE TABLE IF NOT EXISTS gap.roles (
-    id integer NOT NULL,
+    id integer PRIMARY KEY NOT NULL,
     name character varying(128) NOT NULL,
     description character varying(256),   
     created_date timestamp without time zone DEFAULT '1970-01-01 08:00:00'::timestamp without time zone NOT NULL,
     last_modified timestamp without time zone DEFAULT '1970-01-01 08:00:00'::timestamp without time zone NOT NULL,
-    modified_by uuid,
-    PRIMARY KEY (id)
+    modified_by uuid
 );
 
-CREATE TABLE IF NOT EXISTS gap.Users (
+CREATE TABLE IF NOT EXISTS gap.users (
 	id UUID PRIMARY KEY DEFAULT uuid_generate_v4() NOT NULL,
     user_role_id integer NOT NULL,
 	start_date timestamp without time zone DEFAULT '1970-01-01 08:00:00'::timestamp without time zone NOT NULL,

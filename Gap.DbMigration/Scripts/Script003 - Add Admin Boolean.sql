@@ -1,0 +1,1 @@
+﻿ALTER TABLE IF EXISTS gap.users ADD COLUMN IF NOT EXISTS is_admin boolean DEFAULT false NOT NULL;

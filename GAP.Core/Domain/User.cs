@@ -3,24 +3,16 @@ namespace GAP.Core.Domain
 {
     public class User
     {
-        public int Id { get; set; }
-
+        public Guid Id { get; set; }
+        public Company Company { get; set; }
         public Role Role { get; set; }
-
         public DateTime StartDate { get; set; }
-
         public DateTime EndDate { get; set; }
-
         public required string FirstName { get; set; }
-
         public string? MiddleName { get; set; }
-
         public required string LastName { get; set; }
-
         public string DisplayName => $"{FirstName} {LastName}";
-
         public decimal GrossAnnualIncome { get; set; }
-
         public required string ReportingManager { get; set; }
         public required bool Salaried { get; set; }
         public string? DateOfBirth { get; set; }
@@ -33,7 +25,5 @@ namespace GAP.Core.Domain
         public string? WorkPhone { get; set; }
         public string? Cell { get; set; }
         public required string Email { get; set; }
-
-        public List<Budget>? Budgets { get; set; }
     }
 }

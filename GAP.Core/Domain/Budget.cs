@@ -1,11 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace GAP.Core.Domain;
 
 public class Budget
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     public int Year { get; set; }
     public decimal HealthCareContribution { get; set; }

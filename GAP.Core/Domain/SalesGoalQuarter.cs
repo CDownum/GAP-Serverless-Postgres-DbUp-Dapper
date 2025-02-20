@@ -1,22 +1,12 @@
-using Newtonsoft.Json;
-
 namespace GAP.Core.Domain;
 
 public class SalesGoalQuarter
 {
-    public int Id { get; set; }
-
+    public Guid Id { get; set; }
     public int Quarter { get; set; }
-
-    public int SalesGoalId { get; set; } // Required foreign key property
-
-    [JsonIgnore]
-    public required SalesGoal SalesGoal { get; set; }
-
     public int GrossSalesNeeded { get; set; }
-
-    public decimal PercentQuarterSales => GrossSalesNeeded % SalesGoal.GrossSalesNeeded;
-
+    public int SalesGoalTotalGrossSalesNeeded { get; set; }
+    public decimal PercentQuarterSales => GrossSalesNeeded % SalesGoalTotalGrossSalesNeeded;
     public int Referral { get; set; }
     public int SelfOriginating { get; set; }
     public int Internet { get; set; }

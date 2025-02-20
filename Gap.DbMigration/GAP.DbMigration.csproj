@@ -11,7 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\Script003 - Add Admin Boolean.sql" />
+    <EmbeddedResource Include="Scripts\Script002 - Add Company.sql" />
     <EmbeddedResource Include="Scripts\Script001 - Add Schema.sql" />
+    <EmbeddedResource Include="TestDataScripts\Add Initial User.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +35,6 @@
 
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="TestDataScripts\" />
   </ItemGroup>
 
   <ItemGroup>

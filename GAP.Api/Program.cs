@@ -4,7 +4,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using GAP.Api.Extensions;
+using GAP.Api.Functions.Users.Helpers;
 using Serilog;
+using GAP.Core.Database;
+using GAP.Core.Database.Repository;
+using System.Text.Json.Serialization;
+using GAP.Core;
 
 namespace GAP.Api
 {
@@ -50,7 +55,7 @@ namespace GAP.Api
             var authenticationId = configuration.GetValue<string>("Logs_AuthenticationId");
             var env = configuration.GetValue<string>("Logs_Environment");
 
-            Log.Logger = Log.Logger.CreateNewLogger(workspaceId ?? string.Empty, authenticationId ?? string.Empty, appId ?? string.Empty, env ?? string.Empty);
+            Log.Logger = Log.Logger.CreateNewLogger(workspaceId, authenticationId, appId, env);
 
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(Log.Logger));
             services.AddSingleton<ILoggerProvider>(new Serilog.Extensions.Logging.SerilogLoggerProvider(Log.Logger));
@@ -60,9 +65,23 @@ namespace GAP.Api
 
         private static void ConfigureOptions(IServiceCollection services, IConfiguration configuration)
         {
-            //var database = configuration.GetValue<string>("Database");
+            var database = configuration.GetValue<string>("Database:ConnectionString");
 
-            services.Configure<JsonSerializerOptions>(options => { options.IgnoreNullValues = true; });
+            services.Configure<JsonSerializerOptions>(configureOptions: options =>
+            {
+                options.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+            });
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGapRepository, GapRepository>();
+            services.AddScoped<IUserRepository, GapRepository>();
+            services.AddScoped<ISqlWrapper, SqlWrapper>();
+            services.AddScoped(_ => new DbConnectionSettings()
+            {
+                Database = database ?? throw new InvalidOperationException("Missing DB connection")
+            });
+
+            services.AddAutoMapper(typeof(Program).Assembly);
         }
     }
 }
