@@ -1,9 +1,8 @@
 ﻿
 namespace GAP.Core.Domain
 {
-    public class User
+    public class User : DomainModel
     {
-        public Guid Id { get; set; }
         public Company Company { get; set; }
         public Role Role { get; set; }
         public DateTime StartDate { get; set; }

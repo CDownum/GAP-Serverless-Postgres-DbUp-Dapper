@@ -3,12 +3,12 @@ using GAP.Api.Functions.Users.Models;
 using GAP.Api.Models;
 using GAP.Core.Database.Repository;
 
-namespace GAP.Api.Functions.Users.Helpers
+namespace GAP.Api.Functions.Users.Services
 {
     public interface IUserService
     {
         Task<GetUsersResponse> GetUsers(int companyId);
-        //Task<User> GetUser(Guid id);
+        Task<User> GetUser(int companyId, Guid id);
     }
 
     public class UserService(IUserRepository repository, IMapper mapper) : IUserService
@@ -23,9 +23,9 @@ namespace GAP.Api.Functions.Users.Helpers
             return response;
         }
 
-        //public async Task<User> GetUser(Guid id)
-        //{
-        //    return mapper.Map<User>(await repository.GetUser(facilityId, badgeId));
-        //}
+        public async Task<User> GetUser(int companyId, Guid id)
+        {
+            return mapper.Map<User>(await repository.GetUser(companyId, id));
+        }
     }
 }

@@ -1,9 +1,7 @@
 namespace GAP.Core.Domain;
 
-public class BudgetGoal
+public class BudgetGoal : DomainModel
 {
-    public Guid Id { get; set; }
-
     public required string Description { get; set; }
 
     public decimal Amount { get; set; }

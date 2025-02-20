@@ -4,12 +4,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using GAP.Api.Extensions;
-using GAP.Api.Functions.Users.Helpers;
 using Serilog;
 using GAP.Core.Database;
 using GAP.Core.Database.Repository;
 using System.Text.Json.Serialization;
 using GAP.Core;
+using GAP.Api.Functions.Users.Services;
 
 namespace GAP.Api
 {

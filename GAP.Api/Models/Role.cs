@@ -1,12 +1,10 @@
 ﻿
 namespace GAP.Api.Models
 {
-    public enum Role
+    public class Role
     {
-        Admin,
-        Sales,
-        Ceo,
-        Developer,
-        VicePresident
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace GAP.Api.Models;
 
 public class SalesGoalQuarter
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     public int Quarter { get; set; }
 

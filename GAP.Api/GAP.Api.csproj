@@ -53,5 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
+    <Folder Include="Functions\Budgets\" />
+    <Folder Include="Functions\SalesGoals\" />
   </ItemGroup>
 </Project>

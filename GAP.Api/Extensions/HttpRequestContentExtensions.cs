@@ -73,33 +73,5 @@ namespace GAP.Api.Extensions
                 }
             }
         }
-
-        public static TokenResponse ValidateAuthorizationRole(this HttpRequestData req, IJwtAuthentication authentication, string roles)
-        {
-            var authorizationHeader = req.Headers.FirstOrDefault(x => x.Key == "Authorization");
-            var parts = authorizationHeader.Value.FirstOrDefault()?.Split(' ') ?? Array.Empty<string>();
-            var token = parts[0].Equals("Bearer") ? parts[1] : string.Empty;
-
-            var tokenResponse = authentication.ValidateToken(token);
-            var identity = new ClaimsIdentity(tokenResponse.JwtSecurityToken?.Claims, "Bearer");
-            var principal = new ClaimsPrincipal(identity);
-
-            var claimRoles = principal.Claims.Where(c => c.Type == "role");
-
-            if (claimRoles.Any(x => x.Value == roles)) return tokenResponse;
-            tokenResponse.JwtSecurityToken = null;
-            tokenResponse.Exception = $"Unauthorized for Role: {roles}";
-
-            return tokenResponse;
-        }
-
-        public static TokenResponse ValidateAuthorization(this HttpRequestData req, IJwtAuthentication authentication)
-        {
-            var authorizationHeader = req.Headers.FirstOrDefault(x => x.Key == "Authorization");
-            var parts = authorizationHeader.Value.FirstOrDefault()?.Split(' ') ?? Array.Empty<string>();
-            var token = parts[0].Equals("Bearer") ? parts[1] : string.Empty;
-
-            return authentication.ValidateToken(token);
-        }
     }
 }

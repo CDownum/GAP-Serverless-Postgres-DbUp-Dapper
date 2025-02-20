@@ -1,9 +1,7 @@
 namespace GAP.Core.Domain;
 
-public class SalesGoal
+public class SalesGoal : DomainModel
 {
-    public int Id { get; set; }
-
     public int Year { get; set; }
     public decimal AverageSalesPrice { get; set; }
 

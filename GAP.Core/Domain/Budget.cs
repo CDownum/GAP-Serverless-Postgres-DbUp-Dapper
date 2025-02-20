@@ -1,9 +1,7 @@
 namespace GAP.Core.Domain;
 
-public class Budget
+public class Budget : DomainModel
 {
-    public Guid Id { get; set; }
-
     public int Year { get; set; }
     public decimal HealthCareContribution { get; set; }
 

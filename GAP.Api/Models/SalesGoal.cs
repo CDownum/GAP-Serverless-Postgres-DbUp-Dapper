@@ -5,7 +5,7 @@ namespace GAP.Api.Models;
 
 public class SalesGoal
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     public int Year { get; set; }
     public decimal AverageSalesPrice { get; set; }
@@ -19,9 +19,7 @@ public class SalesGoal
     
     public List<SalesGoalQuarter> SalesGoalQuarters { get; set; } = [];
 
-    [Required]
     public DateTime LastModified { get; set; }
 
-    [JsonIgnore]
     public required User User { get; set; }
 }

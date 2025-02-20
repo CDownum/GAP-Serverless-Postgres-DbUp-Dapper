@@ -1,8 +1,7 @@
 namespace GAP.Core.Domain;
 
-public class SalesGoalQuarter
+public class SalesGoalQuarter : DomainModel
 {
-    public Guid Id { get; set; }
     public int Quarter { get; set; }
     public int GrossSalesNeeded { get; set; }
     public int SalesGoalTotalGrossSalesNeeded { get; set; }
