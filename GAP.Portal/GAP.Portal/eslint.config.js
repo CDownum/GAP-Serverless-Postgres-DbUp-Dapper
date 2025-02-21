@@ -23,6 +23,13 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      "react-hooks/exhaustive-deps": [
+      "warn", {
+        "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
+      }
+     ],
+       "react-hooks/rules-of-hooks": "error",
+       "react-hooks/exhaustive-deps": "warn"
     },
   },
 )
