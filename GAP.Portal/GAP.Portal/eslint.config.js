@@ -17,19 +17,13 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+    rules: {    
+      "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": [
       "warn", {
         "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
       }
-     ],
-       "react-hooks/rules-of-hooks": "error",
-       "react-hooks/exhaustive-deps": "warn"
+    ]
     },
   },
 )

@@ -4,25 +4,30 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
+    "build:staging": "vite build --mode staging",
+    "build:prod": "vite build --mode production",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
     "@tanstack/react-query": "^5.66.9",
     "@tanstack/react-router": "^1.109.0",
     "@tanstack/router-devtools": "^1.109.0",
     "@tanstack/router-plugin": "^1.109.0",
     "axios": "^1.7.9",
+    "guid-typescript": "^1.0.9",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "recoil": "^0.7.7"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/node": "^22.13.5",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@types/redux-actions": "^2.6.5",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",

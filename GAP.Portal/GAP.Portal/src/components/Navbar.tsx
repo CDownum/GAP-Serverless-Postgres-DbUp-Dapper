@@ -1,13 +1,12 @@
 import { Link } from '@tanstack/react-router';
-// import { useRecoilState } from 'recoil';
-// import { userState } from '../recoil/atom/user';
+import { Guid } from 'guid-typescript';
+import { useFetchUser } from '../hooks/userData';
 
-const NavBar = () => {
-  // const [user, setUser] = useRecoilState(userState);
+const NavBar: React.FC = () => {
+  const { data, error, isLoading } = useFetchUser(1, Guid.parse('d10f9784-31bd-45aa-b9a3-b4e92c4e118b'));
 
-  // const onChange = (event) => {
-  //   setUser(event.target.value);
-  // };
+  if(isLoading) return <div>Loading...</div>
+  if(error) return <div>Error:</div>
   
   return (
     <>
@@ -58,7 +57,7 @@ const NavBar = () => {
           <div className="dropdown" style={{margin: '15px'}}>
             <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
-              <strong>Michael Downum</strong>
+              <strong>{data ? data.DisplayName : 'Guest'}</strong>
             </a>
             <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">      
               <li><a className="dropdown-item" href="#">Settings</a></li>

@@ -12,12 +12,12 @@ namespace GAP.Api.Functions.Users
 
         [Function(nameof(GetUser))]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = Routes.UsersById)] 
-            HttpRequestData req, int companyId, Guid id)
+            HttpRequestData req, int companyId, Guid userId)
         {
             //var validateResponse = req.ValidateAuthorization(_authentication);
             //if (!validateResponse.Authorized) return req.CreateResponse(HttpStatusCode.Unauthorized);
         
-            var users = await userService.GetUser(companyId, id);
+            var users = await userService.GetUser(companyId, userId);
 
             return await req.MapResponse(users, _log);
         }
