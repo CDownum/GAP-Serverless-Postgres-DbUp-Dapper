@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
+    "@tailwindcss/vite": "^4.0.9",
     "@tanstack/react-query": "^5.66.9",
     "@tanstack/react-router": "^1.109.0",
     "@tanstack/router-devtools": "^1.109.0",
@@ -20,7 +21,8 @@
     "axios": "^1.7.9",
     "guid-typescript": "^1.0.9",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

@@ -8,6 +8,7 @@ using Serilog;
 using GAP.Core.Database;
 using GAP.Core.Database.Repository;
 using System.Text.Json.Serialization;
+using GAP.Api.Functions.SalesGoals.Services;
 using GAP.Core;
 using GAP.Api.Functions.Users.Services;
 
@@ -73,6 +74,8 @@ namespace GAP.Api
             });
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ISalesGoalsService, SalesGoalsService>();
+            services.AddScoped<ISalesGoalRepository, GapRepository>();
             services.AddScoped<IGapRepository, GapRepository>();
             services.AddScoped<IUserRepository, GapRepository>();
             services.AddScoped<ISqlWrapper, SqlWrapper>();

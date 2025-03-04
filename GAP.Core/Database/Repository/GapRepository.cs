@@ -11,7 +11,7 @@ namespace GAP.Core.Database.Repository
         TransactionScope GetTransactionScope(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
     }
 
-    public partial class GapRepository : IGapRepository, IUserRepository
+    public partial class GapRepository : IGapRepository, IUserRepository, ISalesGoalRepository
     {
         private readonly ILogger _log;
         private readonly IMapper _mapper;

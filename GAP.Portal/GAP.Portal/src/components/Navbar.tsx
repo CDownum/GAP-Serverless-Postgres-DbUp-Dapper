@@ -54,7 +54,7 @@ const NavBar: React.FC = () => {
           <form>
             <input className="form-control" type="text" placeholder="Search" aria-label="Search" style={{}} />
           </form>
-          <div className="dropdown" style={{margin: '15px'}}>
+            <div className="dropdown m-4">
             <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
               <strong>{data ? data.DisplayName : 'Guest'}</strong>
@@ -65,7 +65,7 @@ const NavBar: React.FC = () => {
               <li><hr className="dropdown-divider"/></li>
               <li><a className="dropdown-item" href="#">Sign out</a></li>
             </ul>
-          </div>
+            </div>
         </div>
       </div>
       </nav>

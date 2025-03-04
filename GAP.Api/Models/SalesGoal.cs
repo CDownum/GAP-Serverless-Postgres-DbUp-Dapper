@@ -6,10 +6,8 @@ namespace GAP.Api.Models;
 public class SalesGoal
 {
     public Guid Id { get; set; }
-
     public int Year { get; set; }
     public decimal AverageSalesPrice { get; set; }
-
     public decimal CommissionRate { get; set; }
     public decimal AverageCommision { get; set; }
     public decimal AverageLossRatio { get; set; }

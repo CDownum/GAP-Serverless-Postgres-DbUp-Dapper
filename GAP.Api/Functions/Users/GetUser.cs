@@ -6,11 +6,11 @@ using Serilog;
 
 namespace GAP.Api.Functions.Users
 {
-    public class GetUser(IUserService userService)
+    public class GetSalesGoalsByUserId(IUserService userService)
     {
-        private readonly ILogger _log = Log.Logger.ForContext<GetUser>();
+        private readonly ILogger _log = Log.Logger.ForContext<GetSalesGoalsByUserId>();
 
-        [Function(nameof(GetUser))]
+        [Function(nameof(GetSalesGoalsByUserId))]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = Routes.UsersById)] 
             HttpRequestData req, int companyId, Guid userId)
         {

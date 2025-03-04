@@ -14,5 +14,7 @@ public class AutoMapperProfile : Profile
     public AutoMapperProfile()
     {
         CreateMap<Core.Domain.User, User>().ReverseMap();
+        CreateMap<Core.Domain.SalesGoal, SalesGoal>().ReverseMap();
+        CreateMap<Core.Domain.SalesGoalQuarter, SalesGoalQuarter>().ReverseMap();
     }
 }

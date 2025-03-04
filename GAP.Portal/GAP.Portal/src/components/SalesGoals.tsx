@@ -8,18 +8,18 @@ const SalesGoals = () => {
     <>
      <div className='row position-relative'>
     <div className='col-12'>
-        <div className='row' style={{ marginRight: '10px' }}>
+        <div className='row mr-10'>
             <div className='col-12'>
-                <h1>Michael</h1>
-                {/* <GapQuarterlyGoalsSalesNeeded SalesGoal="@salesGoal"  /> */}
+            <h1>Michael</h1>
+            {/* <GapQuarterlyGoalsSalesNeeded SalesGoal="@salesGoal"  /> */}
             </div>
         </div>
-        <div className='row' style={{ marginRight: '10px' }}>
-            <div className='col-8' style={{ float: 'right' }}>
+        <div className='row mr-10'>
+            <div className='col-8 float-right'>
                 {/* <GapQuarterlyGoalsGrossSales SalesGoal="@salesGoal" SalesGoalQuarters="@salesGoal.SalesGoalQuarters" /> */}
             </div>
         </div>
-        <div className='row' style={{ marginRight: '10px' }}>
+        <div className='row mr-10'>
             <div className='col-12'>
                 <div className='row'>
                     {/* @foreach (var quarter in salesGoal.SalesGoalQuarters)
